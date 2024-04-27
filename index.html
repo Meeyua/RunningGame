@@ -92,28 +92,31 @@ if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent) && window.innerHeight 
   //container.className = "unity-mobile";
   var mobilehide = document.getElementById('unity-footer');
     mobilehide.style.display='block';
-  canvas.style.width = "1080px";
-  canvas.style.height = "1920px";
+
+  canvas.style.width = window.innerWidth;
+  canvas.style.height = window.innerWidth/1080*1920;
 
   // Avoid draining fillrate performance on mobile devices,
   // and default/override low DPI mode on mobile browsers.
   //config.devicePixelRatio = 1;
   //unityShowBanner('WebGL builds are not supported on mobile devices.');
-} else if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent) && window.innerHeight < window.innerWidth) {
-  var x = window.innerWidth/486;
-  var y = window.innerHeight/864;
-  var w=x.toFixed(1)>y.toFixed(1)?x.toFixed(1):y.toFixed(1);
-      console.log(w);
-  var mobilehide = document.getElementById('unity-footer');
-    mobilehide.style.display='none';
+} 
+// else if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent) && window.innerHeight < window.innerWidth) {
+//   var x = window.innerWidth/486;
+//   var y = window.innerHeight/864;
+//   var w=x.toFixed(1)>y.toFixed(1)?x.toFixed(1):y.toFixed(1);
+//       console.log(w);
+//   var mobilehide = document.getElementById('unity-footer');
+//     mobilehide.style.display='none';
 
-  canvas.style.width = 486*w+'px';
-  canvas.style.height = 864*w+'px';
-} else {
+//   canvas.style.width = 486*w+'px';
+//   canvas.style.height = 864*w+'px';
+// }
+ else {
   var mobilehide = document.getElementById('unity-footer');
     mobilehide.style.display='block';
   canvas.style.width = "486px";
-  canvas.style.height = "864px";
+  canvas.style.height = (window.innerHeight-40)/540*960;
 }
 }
 resized();
