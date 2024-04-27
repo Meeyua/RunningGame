@@ -13,13 +13,13 @@
         margin: 0;
       }
       body{
-        background-color: black;
+        background-color: rgb(255, 255, 255);
       }
     </style>
   </head>
   <body onresize="resized()">
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=540 height=960 tabindex="-1"></canvas>
+      <canvas id="unity-canvas" width=432 height=768 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -30,7 +30,7 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title" style="color:white;">跑酷遊戲</div>
+        <div id="unity-build-title">跑酷遊戲</div>
       </div>
     </div>
     <script>
@@ -92,28 +92,28 @@ if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent) && window.innerHeight 
   //container.className = "unity-mobile";
   var mobilehide = document.getElementById('unity-footer');
     mobilehide.style.display='block';
-  canvas.style.width = "540px";
-  canvas.style.height = "960px";
+  canvas.style.width = "432px";
+  canvas.style.height = "768px";
 
   // Avoid draining fillrate performance on mobile devices,
   // and default/override low DPI mode on mobile browsers.
   //config.devicePixelRatio = 1;
   //unityShowBanner('WebGL builds are not supported on mobile devices.');
 } else if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent) && window.innerHeight < window.innerWidth) {
-  var x = window.innerWidth/540;
-  var y = window.innerHeight/960;
+  var x = window.innerWidth/432;
+  var y = window.innerHeight/768;
   var w=x.toFixed(1)>y.toFixed(1)?x.toFixed(1):y.toFixed(1);
       console.log(w);
   var mobilehide = document.getElementById('unity-footer');
     mobilehide.style.display='none';
 
-  canvas.style.width = 540*w+'px';
-  canvas.style.height = 960*w+'px';
+  canvas.style.width = 432*w+'px';
+  canvas.style.height = 768*w+'px';
 } else {
   var mobilehide = document.getElementById('unity-footer');
     mobilehide.style.display='block';
-  canvas.style.width = "540px";
-  canvas.style.height = "960px";
+  canvas.style.width = "432px";
+  canvas.style.height = "768px";
 }
 }
 resized();
